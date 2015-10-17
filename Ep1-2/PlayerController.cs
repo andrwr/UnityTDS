@@ -28,5 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         myRigidbody.MovePosition(myRigidbody.position + velocity * Time.fixedDeltaTime);
 
+        
+
     }
 }

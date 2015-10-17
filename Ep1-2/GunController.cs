@@ -5,6 +5,8 @@ public class GunController : MonoBehaviour
 {
 
     public Transform weaponHold;
+    public Transform weaponHold2;
+
     public Gun startingGun;
     Gun equippedGun;
 
@@ -24,6 +26,8 @@ public class GunController : MonoBehaviour
         }
         equippedGun = Instantiate(gunToEquip, weaponHold.position, weaponHold.rotation) as Gun;
         equippedGun.transform.parent = weaponHold;
+        equippedGun = Instantiate(gunToEquip, weaponHold2.position, weaponHold2.rotation) as Gun;
+        equippedGun.transform.parent = weaponHold2;
     }
 
     public void Shoot()

@@ -5,6 +5,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     PlayerController controller;
+    GunController gunController;
     public float moveSpeed = 5f;
 
     Camera viewCamera;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 
         controller = GetComponent<PlayerController>();
+        gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
 
 
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour {
         // Move Input
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 moveVelocity = moveInput.normalized * moveSpeed;
+        
 
         controller.Move(moveVelocity);
 
@@ -41,5 +44,10 @@ public class Player : MonoBehaviour {
 
         }
 	
+        if (Input.GetMouseButton(0))
+        {
+            gunController.Shoot();
+        }
+
 	}
 }
