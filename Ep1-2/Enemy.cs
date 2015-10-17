@@ -1,35 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent (typeof (NavMeshAgent))]
 public class Enemy : MonoBehaviour {
 
     NavMeshAgent pathfinder;
+    // Need to know where the player is so i can chase him.
     Transform target;
 
-	// Use this for initialization
 	void Start () {
 
         pathfinder = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-	}
+        StartCoroutine(UpdatePath());
+    }
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
 
     IEnumerator UpdatePath() {
-
-        float refreshRate = .25f;
+        float refreshRate = 0.25f;
 
         while (target != null) {
             Vector3 targetPosition = new Vector3(target.position.x, 0, target.position.z);
+
             pathfinder.SetDestination(targetPosition);
 
             yield return new WaitForSeconds(refreshRate);
         }
-
     }
 }
