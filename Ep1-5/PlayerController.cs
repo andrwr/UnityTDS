@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent (typeof (Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
 	Vector3 velocity;
@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody> ();
 	}
-	
+
 	public void Move(Vector3 _velocity) {
 		velocity = _velocity;
 	}
@@ -22,5 +22,6 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate() {
 		myRigidbody.MovePosition (myRigidbody.position + velocity * Time.fixedDeltaTime);
+
 	}
 }
