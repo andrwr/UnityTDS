@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour {
 
 		if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime) {
 			enemiesRemainingToSpawn--;
+            // YES
 			nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
 
 			Enemy spawnedEnemy = Instantiate(enemy, Vector3.zero, Quaternion.identity) as Enemy;
